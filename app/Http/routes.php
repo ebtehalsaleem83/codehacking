@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Redirect;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::auth();
 
 
@@ -24,7 +25,10 @@ Route::get('/logout', function(){
     return Redirect::to('login');
 });
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index' , function (){
+    
+    return Redirect::to('/admin');
+});
 
 Route::get('/admin',function (){
     return view('admin.index');

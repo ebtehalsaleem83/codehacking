@@ -17,7 +17,6 @@
 
     </div>
 
-
     <div class="col-sm-6">
         @if($categories)
             <table class="table">
@@ -33,7 +32,7 @@
                 @foreach($categories as $category)
                     <tr>
                         <td>{{$category->id}}</td>
-                        <td>{{$category->name}}</td>
+                        <td><a href="{{route('admin.categories.edit',$category->id)}}">{{$category->name}}</a> </td>
                         <td>{{$category->created_at ? $category->created_at->diffForhumans() : 'no date' }}</td>
                     </tr>
 
@@ -42,5 +41,10 @@
                 </tbody>
             </table>
         @endif
+    </div>
+
+
+    <div class="row">
+        @include('includes.form_error')
     </div>
 @stop
