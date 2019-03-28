@@ -23,10 +23,10 @@
                 <th>Photo</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Created</th>
               <th>Role</th>
-                <th>Status</th>
-                <ht>Updated</ht>
+              <th>Status</th>
+                <th>Created</th>
+                <th>Updated</th>
 
             </tr>
           </thead>

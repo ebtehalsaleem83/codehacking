@@ -29,7 +29,7 @@ class AdminCategoriesController extends Controller
      */
     public function create()
     {
-
+       // return redirect('/admin/categories');
     }
 
     /**

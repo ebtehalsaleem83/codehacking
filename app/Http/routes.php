@@ -25,21 +25,37 @@ Route::get('/logout', function(){
     return Redirect::to('login');
 });
 
-Route::get('/home', 'HomeController@index' , function (){
-    
-    return Redirect::to('/admin');
-});
-
-Route::get('/admin',function (){
-    return view('admin.index');
-});
+Route::get('/home', 'HomeController@index');
 
 
+Route::get('/post/{id}', ['as'=>'home.post','uses'=>'AdminPostsController@post']);
+
+
+//Route::get('/admin',function (){
+//    return view('admin.index');
+//});
+//Route::resource('admin/users','AdminUsersController');
+//Route::resource('admin/posts','AdminPostsController');
+//Route::resource('admin/categories','AdminCategoriesController');
+//Route::resource('admin/media','AdminMediasController');
+//Route::resource('admin/comments', 'PostCommentsController');
+//Route::resource('admin/comments/replies', 'CommentRepliesController');
 
 Route::group(['middleware'=>'admin'] , function (){
+     Route::get('/admin',function (){
+    return view('admin.index');
+     });
+
     Route::resource('admin/users','AdminUsersController');
     Route::resource('admin/posts','AdminPostsController');
     Route::resource('admin/categories','AdminCategoriesController');
+    Route::resource('admin/media','AdminMediasController');
+    Route::resource('admin/comments', 'PostCommentsController');
+    Route::resource('admin/comments/replies', 'CommentRepliesController');
 
 });
+Route::group(['middleware'=>'auth'],function (){
+ Route::post('comment/reply','CommentRepliesController@createReply');
+});
+
 
