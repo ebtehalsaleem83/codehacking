@@ -46,6 +46,8 @@
             @endforeach
             @endif
 
+
           </tbody>
         </table>
+  {{$users->links()}}
 @stop

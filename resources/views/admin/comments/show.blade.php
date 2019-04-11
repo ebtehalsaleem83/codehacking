@@ -26,6 +26,8 @@
             <tbody>
 
             @foreach($comments as $comment)
+
+
                 <tr>
                     <td>{{$comment->id}}</td>
                     <td>{{$comment->author}}</td>
@@ -34,18 +36,27 @@
                     <td><a href="{{route('home.post',$comment->post->id)}}">View Post</a></td>
 
                     <td>
+
                         @if($comment->is_active == 1)
+
 
                             {!! Form::open(['method'=>'PATCH', 'action'=> ['PostCommentsController@update', $comment->id]]) !!}
 
+
                             <input type="hidden" name="is_active" value="0">
+
 
                             <div class="form-group">
                                 {!! Form::submit('Un-approve', ['class'=>'btn btn-success']) !!}
                             </div>
                             {!! Form::close() !!}
+
+
                         @else
+
+
                             {!! Form::open(['method'=>'PATCH', 'action'=> ['PostCommentsController@update', $comment->id]]) !!}
+
 
                             <input type="hidden" name="is_active" value="1">
 
@@ -55,7 +66,12 @@
                             </div>
                             {!! Form::close() !!}
 
+
+
+
                         @endif
+
+
 
                     </td>
 

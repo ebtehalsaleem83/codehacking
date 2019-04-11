@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+    @include('includes.tinyedtior')
 
     <h1> Create Post</h1>
 
@@ -21,6 +22,7 @@
     </div>
     <div class="form-group">
       {!! Form::label('body', 'Description:') !!}
+
       {!! Form::textarea('body', null, ['class'=>'form-control']) !!}
     </div>
 
